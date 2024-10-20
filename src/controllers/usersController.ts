@@ -16,7 +16,7 @@ export const getUsers = async (
 
     response(res, { data: users });
   } catch (err) {
-    response(res, { status: 400, data: { message: err } });
+    response(res, { status: 500, data: { message: err } });
   }
 };
 
@@ -40,7 +40,7 @@ export const getUser = async (
       );
     }
   } catch (err) {
-    response(res, { status: 400, data: { message: err } });
+    response(res, { status: 500, data: { message: err } });
   }
 };
 
@@ -75,7 +75,7 @@ export const createUser = async (
 
     response(res, { data: body, status: 201 });
   } catch (err) {
-    response(res, { status: 400, data: { message: err } });
+    response(res, { status: 500, data: { message: err } });
   }
 };
 
@@ -111,7 +111,7 @@ export const updateUser = async (
 
     response(res, { data: newUser, status: 201 });
   } catch (err) {
-    response(res, { status: 400, data: { message: err } });
+    response(res, { status: 500, data: { message: err } });
   }
 };
 
@@ -136,6 +136,6 @@ export const deleteUser = async (
       );
     }
   } catch (err) {
-    response(res, { status: 400, data: { message: err } });
+    response(res, { status: 500, data: { message: err } });
   }
 };

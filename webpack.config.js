@@ -1,9 +1,23 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: "./src/index.ts",
+  target: "node",
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+    publicPath: "/dist/",
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(ts|js)$/,
+        exclude: /node_modules/,
+        use: "ts-loader",
+      },
+    ],
+  },
+  resolve: {
+    extensions: [".ts", ".js"],
   },
 };
