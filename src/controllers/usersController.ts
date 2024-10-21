@@ -1,7 +1,7 @@
 import { IncomingMessage, ServerResponse } from "node:http";
 import { userService } from "../services/usersService";
 import { response } from "../utils/response";
-import { User } from "../types/users";
+import { User, UserResource } from "../types/users";
 import { getRequestBody } from "../utils/requestBody";
 import { v4 as uuid } from "uuid";
 import { getNotFoundResponseBody, isUserObjectValid } from "./helpers";
@@ -49,7 +49,7 @@ export const createUser = async (
   res: ServerResponse<IncomingMessage>
 ) => {
   try {
-    const body: User = await getRequestBody(req);
+    const body: UserResource = await getRequestBody(req);
 
     if (!isUserObjectValid(body)) {
       return response(res, {

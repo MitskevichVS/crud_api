@@ -1,10 +1,10 @@
-import { User } from "../types/users";
+import { UserResource } from "../types/users";
 
 type UserService = {
-  _users: User[];
-  getUsers: () => User[];
-  setUsers: (users: User[]) => void;
-  updateUser: (user: User, index: number) => void;
+  _users: UserResource[];
+  getUsers: () => UserResource[];
+  setUsers: (users: UserResource[]) => void;
+  updateUser: (user: UserResource, index: number) => void;
   deleteUser: (index: number) => void;
 };
 
@@ -15,11 +15,11 @@ export const userService: UserService = {
     return userService._users;
   },
 
-  setUsers: (users: User[]) => {
+  setUsers: (users: UserResource[]) => {
     userService._users = users;
   },
 
-  updateUser: (newUser: User, index: number) => {
+  updateUser: (newUser: UserResource, index: number) => {
     userService._users.splice(index, 1, newUser);
   },
 
