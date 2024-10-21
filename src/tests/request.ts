@@ -29,9 +29,6 @@ export const postRequest = (
     host: string;
     port: number;
     path: string;
-    // host: 'eternagame.wikia.com',
-    // port: 8080,
-    // path: '/wiki/EteRNA_Dictionary'
   },
   postData: string
 ): Promise<UserResource> => {
@@ -49,11 +46,9 @@ export const postRequest = (
       let data = "";
 
       res.on("data", (chunk: string) => {
-        console.log(`BODY: ${chunk}`);
         data += chunk;
       });
       res.on("end", async () => {
-        console.log("No more data in response.");
         try {
           const parsedData = await JSON.parse(data);
           resolve(parsedData);

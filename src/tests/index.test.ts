@@ -70,4 +70,14 @@ describe("GET method", () => {
       console.log(err);
     }
   });
+
+  test("Get '/api/users/:id' with incorrect id should return an error with 'Not found' message", async () => {
+    try {
+      const error = await getRequest(`${hostname}${path}/wrongId`);
+
+      expect(error).toMatchObject({ message: "Not found" });
+    } catch (err) {
+      console.log(err);
+    }
+  });
 });
